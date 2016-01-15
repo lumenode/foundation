@@ -1,0 +1,20 @@
+{
+  "name": "lumenode-foundation",
+  "version": "1.0.2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "escape-html": "^1.0.3",
+    "express": "^4.13.3",
+    "lodash": "^3.10.1"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "lumenode-foundation@1.0.2",
+  "_shasum": "9563e2b54272aca7ffee36b4f933e0be66a1340f",
+  "_from": "lumenode-foundation@*"
+}
