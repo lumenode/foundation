@@ -25,7 +25,7 @@ Router.prototype.listen = function () {
   );
 
   // Setup public files
-  this.express.use('/public', express.static('public'));
+  this.express.use('', express.static(this.app.getBasePath() + 'public'));
   this.express.use(express.static('files'));
 
   // Setup body parser
