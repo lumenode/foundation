@@ -1,15 +1,20 @@
 'use strict';
 
-function Exception(code, message) {
-  this.name = this.name || '<unnamed> Exception';
-  this.code = code || 500;
-  this.message = message || '';
-  this.stack = (new Error()).stack;
-}
-Exception.prototype = new Error;
+class Exception extends Error {
 
-Exception.prototype.is = function(name) {
-  return this.name === name;
-};
+  constructor(code, message) {
+    super();
+
+    this.name = this.name || '<unnamed> Exception';
+    this.code = code || 500;
+    this.message = message || '';
+    this.stack = (new Error()).stack;
+  }
+
+  is(name) {
+    return this.name === name;
+  }
+
+}
 
 module.exports = Exception;

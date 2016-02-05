@@ -11,7 +11,15 @@
     "body-parser": "^1.14.2",
     "escape-html": "^1.0.3",
     "express": "^4.13.3",
-    "lodash": "^3.10.1"
+    "lodash": "^3.10.1",
+    "lumenode-container": "latest",
+    "lumenode-environment-detector": "latest",
+    "lumenode-filesystem": "latest"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4",
+    "should": "^8.0.2",
+    "sinon": "^1.17.3"
   },
   "readme": "ERROR: No README data found!",
   "_id": "lumenode-foundation@1.0.2",

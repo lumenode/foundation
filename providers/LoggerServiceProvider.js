@@ -3,17 +3,18 @@
 var Logger = require('lumenode-logger');
 var ServiceProvider = require('lumenode-foundation').ServiceProvider;
 
-function LoggerServiceProvider(app) {
-  ServiceProvider.apply(this, arguments);
+class LoggerServiceProvider extends ServiceProvider {
 
-  this.app = app;
+  constructor(app) {
+    this.app = app;
+  }
+
+  register(Application) {
+    var logger = Logger(this.app.getBasePath());
+
+    this.app.instance('Logger', logger);
+  }
+
 }
-inherit(LoggerServiceProvider, ServiceProvider);
-
-LoggerServiceProvider.prototype.register = function(Application) {
-  var logger = Logger(this.app.getBasePath());
-
-  this.app.instance('Logger', logger);
-};
 
 module.exports = LoggerServiceProvider;

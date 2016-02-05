@@ -1,28 +1,28 @@
 'use strict';
 
-function HandleExceptions() {
-  // body...
-}
+class HandleExceptions {
 
-HandleExceptions.prototype.boot = function (app) {
-  this.app = app;
+  boot(app) {
+    this.app = app;
 
-  process.on('uncaughtException', function (error) {
-    this.handleException(error);
-  }.bind(this));
-};
-
-HandleExceptions.prototype.handleException = function(error) {
-  if ( ! error instanceof Error) {
-    error = new Error(error);
+    process.on('uncaughtException', error => {
+      this.handleException(error);
+    });
   }
 
-  this.getExceptionHandler().report(error);
-  this.getExceptionHandler().render(error);
-};
+  handleException(error) {
+    if (!error instanceof Error) {
+      error = new Error(error);
+    }
 
-HandleExceptions.prototype.getExceptionHandler = function() {
-  return this.app.make('app/exceptions/ExceptionHandler');
-};
+    this.getExceptionHandler().report(error);
+    this.getExceptionHandler().render(error);
+  }
+
+  getExceptionHandler() {
+    return this.app.make('app/exceptions/ExceptionHandler');
+  }
+
+}
 
 module.exports = HandleExceptions;

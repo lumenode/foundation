@@ -1,17 +1,17 @@
 'use strict';
 
-var Http = require('lumenode-http');
 var ServiceProvider = require('lumenode-foundation').ServiceProvider;
 
-function HttpServiceProvider(app) {
-  ServiceProvider.apply(this, arguments);
+class HttpServiceProvider extends ServiceProvider {
 
-  this.app = app;
+  constructor(app) {
+    this.app = app;
+  }
+
+  register() {
+    this.app.singleton('Http', require('lumenode-http'));
+  }
+
 }
-inherit(HttpServiceProvider, ServiceProvider);
-
-HttpServiceProvider.prototype.register = function() {
-  this.app.singleton('Http', Http);
-};
 
 module.exports = HttpServiceProvider;

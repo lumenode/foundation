@@ -1,11 +1,11 @@
 'use strict';
 
-function StartRouter() {
-  // body...
-}
+class StartRouter() {
 
-StartRouter.prototype.boot = function (app) {
-  app.startRouter();
-};
+  boot(app) {
+    app.startRouter();
+  }
+
+}
 
 module.exports = StartRouter;

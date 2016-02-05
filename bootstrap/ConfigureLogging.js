@@ -1,11 +1,11 @@
 'use strict';
 
-function ConfigureLogging () {
-  // body...
-}
+class ConfigureLogging {
 
-ConfigureLogging.prototype.boot = function() {
-  // console.log('configure logging');
-};
+  boot() {
+    // console.log('configure logging');
+  }
+
+}
 
 module.exports = ConfigureLogging;

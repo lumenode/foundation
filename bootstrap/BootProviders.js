@@ -1,11 +1,11 @@
 'use strict';
 
-function BootProviders () {
-  // body...
-}
+class BootProviders {
 
-BootProviders.prototype.boot = function(app) {
-  app.boot();
-};
+  boot(app) {
+    app.boot();
+  }
+
+}
 
 module.exports = BootProviders;

@@ -1,11 +1,11 @@
 'use strict';
 
-function RegisterProviders () {
-  // body...
-}
+class RegisterProviders {
 
-RegisterProviders.prototype.boot = function(app) {
-  app.registerConfiguredProviders();
-};
+  boot(app) {
+    app.registerConfiguredProviders();
+  }
+
+}
 
 module.exports = RegisterProviders;

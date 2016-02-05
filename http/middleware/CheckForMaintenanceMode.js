@@ -1,15 +1,19 @@
 'use strict';
 
-function CheckForMaintenanceMode (app) {
-  this.app = app;
-}
+class CheckForMaintenanceMode {
 
-CheckForMaintenanceMode.prototype.handle = function(req, res, next) {
-  if (this.app.isDownForMaintenance()) {
-    return exception('HttpErrorException', 503, 'Application is under maintenance :(');
+  constructor(app) {
+    this.app = app;
   }
 
-  return next();
-};
+  handle(req, res, next) {
+    if (this.app.isDownForMaintenance()) {
+      return exception('HttpErrorException', 503, 'Application is under maintenance :(');
+    }
+
+    return next();
+  }
+
+}
 
 module.exports = CheckForMaintenanceMode;
