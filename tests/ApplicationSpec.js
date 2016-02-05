@@ -7,43 +7,43 @@ let Container = require('lumenode-container');
 
 describe('Application Spec', () => {
   
-  it('is green', function () {
+  it('is green', () => {
     let a = true;
     a.should.be.ok();
   });
 
-  it('is instance of Container', function () {
+  it('is instance of Container', () => {
     let app = new Application;
 
     app.should.be.instanceOf(Container);
   });
 
-  it('is not bootstrapped', function () {
+  it('is not bootstrapped', () => {
     let app = new Application;
     app.isBootstrapped.should.not.be.ok();
   });
 
-  it('sets base application\'s path on init', function () {
+  it('sets base application\'s path on init', () => {
     let app = new Application('/some/path');
     app.getBasePath().should.be.equal('/some/path');
   });
 
-  it('sets config path based on app.basePath', function () {
+  it('sets config path based on app.basePath', () => {
     let app = new Application('/some/path');
     app.getConfigPath().should.be.equal('/some/path/config');
   });
 
-  it('sets environment path based on app.basePath', function () {
+  it('sets environment path based on app.basePath', () => {
     let app = new Application('/some/path');
     app.getEnvironmentPath().should.be.equal('/some/path/.env');
   });
 
-  it('does not have any providers by default', function () {
+  it('does not have any providers by default', () => {
     let app = new Application;
     app.serviseProviders.should.be.empty();
   });
 
-  it('registers core bindings withing application', function () {
+  it('registers core bindings withing application', () => {
     let app = new Application;
 
     app.make('app').should.be.equal(app);
@@ -51,7 +51,7 @@ describe('Application Spec', () => {
     app.make('src/foundation/Container').should.be.equal(app);
   });
 
-  it('registers core services within application', function () {
+  it('registers core services within application', () => {
     let app = new Application;
 
     app.make('Router').should.be.ok();
@@ -62,15 +62,13 @@ describe('Application Spec', () => {
     let app = new Application;
 
     app.instance('Router', {
-      startServer: () => {
-        done();
-      }
+      startServer: () => done()
     })
     
     app.startRouter();
   });
 
-  it('can be bootstrapped with extra logic', function () {
+  it('can be bootstrapped with extra logic', () => {
     let app = new Application;
     let counter = 0;
 
@@ -118,7 +116,7 @@ describe('Application Spec', () => {
     app.registerConfiguredProviders(providers);
   });
 
-  it('register single provider', function () {
+  it('register single provider', () => {
     let app = new Application;
     let provider = {
       register: () => {}
@@ -133,7 +131,7 @@ describe('Application Spec', () => {
     providerMock.verify();
   });
 
-  it('boot\'s application provider', function () {
+  it('boot\'s application provider', () => {
     let app = new Application;
 
     let provider = {
