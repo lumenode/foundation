@@ -3,7 +3,7 @@
 class ServiceProvider {
 
   register() {
-    throw new Error('You have to override ServiceProvider::register()')
+    throw new Error('You have to override ServiceProvider::register()');
   }
 
   boot() {}
