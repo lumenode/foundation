@@ -1,6 +1,6 @@
 'use strict';
 
-class StartRouter() {
+class StartRouter {
 
   boot(app) {
     app.startRouter();

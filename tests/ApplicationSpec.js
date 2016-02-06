@@ -25,12 +25,12 @@ describe('Application Spec', () => {
 
   it('sets base application\'s path on init', () => {
     let app = new Application('/some/path');
-    app.getBasePath().should.be.equal('/some/path');
+    app.getBasePath().should.be.equal('/some/path/');
   });
 
   it('sets config path based on app.basePath', () => {
     let app = new Application('/some/path');
-    app.getConfigPath().should.be.equal('/some/path/config');
+    app.getConfigPath().should.be.equal('/some/path/config/');
   });
 
   it('sets environment path based on app.basePath', () => {

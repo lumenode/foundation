@@ -6,6 +6,8 @@ var ServiceProvider = require('lumenode-foundation').ServiceProvider;
 class LoggerServiceProvider extends ServiceProvider {
 
   constructor(app) {
+    super(app);
+
     this.app = app;
   }
 

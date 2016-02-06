@@ -6,7 +6,7 @@ class UpdateRequestData {
     this.app = app;
   }
 
-  handle = function (req, res, next) {
+  handle(req, res, next) {
     this.app.instance('Request', req);
     this.app.instance('Response', res);
 

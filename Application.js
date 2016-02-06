@@ -12,7 +12,7 @@ class Application extends Container {
   constructor(basePath) {
     super();
 
-    this.basePath = basePath;
+    this.basePath = `${basePath}/`;
 
     this.isBootstrapped = false;
     this.environmentFile = '.env';
@@ -39,7 +39,7 @@ class Application extends Container {
    * @return {String} Config directory path
    */
   getConfigPath() {
-    return `${this.getBasePath()}/config`;
+    return this.getBasePath() + 'config/';
   }
 
   /**
@@ -48,7 +48,7 @@ class Application extends Container {
    * @return {String} Env file path
    */
   getEnvironmentPath() {
-    return `${this.environmentPath}/${this.environmentFile}`;
+    return this.environmentPath + this.environmentFile;
   }
 
   /**
@@ -135,7 +135,7 @@ class Application extends Container {
   registerConfiguredProviders(providers) {
     let repository = this.make('ProviderRepository');
 
-    repository.load(providers || config('app.providers'));
+    repository.load(providers || config('app.providers') || []);
   }
 
   /**
