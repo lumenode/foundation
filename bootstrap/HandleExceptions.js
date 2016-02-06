@@ -8,6 +8,16 @@ class HandleExceptions {
     process.on('uncaughtException', error => {
       this.handleException(error);
     });
+
+    //do something when app is closing
+    process.on('exit', function() {
+      console.log('on exit');
+    });
+
+    //catches ctrl+c event
+    process.on('SIGINT', function() {
+      console.log('SIGINT');
+    });
   }
 
   handleException(error) {
