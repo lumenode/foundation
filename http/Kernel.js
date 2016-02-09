@@ -11,6 +11,7 @@ class Kernel {
     this.bootstrappers = [
       __dirname + '/../bootstrap/DetectEnvironment',
       __dirname + '/../bootstrap/LoadConfiguration',
+      __dirname + '/../bootstrap/UseConsoleConfiguration',
       __dirname + '/../bootstrap/ConfigureLogging',
       __dirname + '/../bootstrap/HandleExceptions',
       __dirname + '/../bootstrap/StartRouter',
