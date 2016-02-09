@@ -3,22 +3,28 @@
 // TODO: implement Logger from published content
 class ExceptionHandler {
 
-  constructor(Application) {
+  constructor(Application, Logger) {
     this.app = Application;
-    this.logger = console;
+    this.logger = Logger;
 
     this.dontReport = [];
   }
 
   report(error) {
-    this.logger.error('logging error', error || 'Unknown error');
-    this.logger.error('stack', error.stack);
+    var message = error || 'Unknown error';
+    var result = `Error message: ${message}\nStack: ${error.stack}`;
+
+    this.logger.log('error', result);
   }
 
   render(error) {
     var message = error ? error.message : 'Unknown error';
 
-    this.app.make('Response').end(message);
+    try {
+      this.app.make('Response').end(message);
+    } catch (e) {
+      log('error', 'Failed to render error. Original message is: ' + message);
+    }
   }
 
 }

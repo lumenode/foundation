@@ -21,7 +21,10 @@ Router.prototype.startServer = function () {
 Router.prototype.listen = function () {
   this.express.listen.call(
     this.getErrorHandler(this.app).bind(this.express),
-    config('app.port')
+    config('app.port'),
+    function() {
+      log('info', 'Listening on port ' + config('app.port'));
+    }
   );
 
   // Setup public files
