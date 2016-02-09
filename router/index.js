@@ -82,8 +82,14 @@ Router.prototype.getErrorHandler = function (app) {
         return req.socket.destroy();
       }
 
-      return exception('ServerErrorException', status, msg);
-    });
+      // Emulate exception
+      var exepctionHandler = app.make('app/exceptions/ExceptionHandler');
+      var exeptionError = new Error(`Message: ${msg}. Code: ${status}`);
+      exepctionHandler.report(exeptionError);
+      exepctionHandler.render(exeptionError);
+
+      return;
+    }.bind(this));
   };
 };
 

@@ -1,6 +1,5 @@
 'use strict';
 
-// TODO: implement Logger from published content
 class ExceptionHandler {
 
   constructor(Application, Logger) {

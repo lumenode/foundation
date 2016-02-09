@@ -10,14 +10,15 @@ class HandleExceptions {
     });
 
     //do something when app is closing
-    // process.on('exit', function() {
-    //   console.log('on exit');
-    // });
+    process.on('exit', function() {
+      console.log('on exit');
+    });
 
-    // //catches ctrl+c event
-    // process.on('SIGINT', function() {
-    //   console.log('SIGINT');
-    // });
+    //catches ctrl+c event
+    process.on('SIGINT', function() {
+      console.log('SIGINT');
+      process.exit(0);
+    });
   }
 
   handleException(error) {
